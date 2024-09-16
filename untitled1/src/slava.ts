@@ -1,7 +1,7 @@
-let myString: string = "Hello, TypeScript!";
-let myNumber: number = 42;
+let myString: string = "Привіт typescript";
+let myNumber: number = 18;
 let myBoolean: boolean = true;
-let myAny: any = "This can be anything!";
+let myAny: any = "Тут я можу писати все що завгодно 1";
 
 console.log(myString);
 console.log(myNumber);
