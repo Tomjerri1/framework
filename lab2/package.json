@@ -1,0 +1,14 @@
+{
+  "name": "lab2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/1 Aufgabe.ts",
+  "scripts": {
+    "build": "tsc"
+  },
+  "private": true,
+  "dependencies": {
+    "@types/node": "^22.5.4",
+    "typescript": "^5.5.4"
+  }
+}
