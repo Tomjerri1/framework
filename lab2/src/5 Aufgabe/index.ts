@@ -1,21 +1,23 @@
-import { CourseManager } from "./courseManager";
-import { OnlineCourse } from "./onlineCourse";
-
-const javaScript = new OnlineCourse('JavaScript', 10);
-const webDevelopment = new OnlineCourse('Web Development', 15);
-const cpp = new OnlineCourse('C++', 20);
+import { OnlineCourse } from './onlineCourse';
+import { CourseManager } from './courseManager';
 
 const courseManager = new CourseManager();
-courseManager.addCourse(javaScript);
-courseManager.addCourse(webDevelopment);
-courseManager.addCourse(cpp);
 
-javaScript.registerStudent('Oleg');
-javaScript.registerStudent('Kostya');
-webDevelopment.registerStudent('Valera');
-webDevelopment.registerStudent('Slava');
-cpp.registerStudent('Misha');
-cpp.registerStudent('Misha');
+const jsCourse = new OnlineCourse('JavaScript', 40);
+const tsCourse = new OnlineCourse('TypeScript', 30);
 
+console.log('\n');
+courseManager.addCourse(jsCourse);
+courseManager.addCourse(tsCourse);
+
+console.log('\n');
+jsCourse.registerStudent('Москалюк');
+jsCourse.registerStudent('Чоботар');
+tsCourse.registerStudent('Пінгвін');
+
+console.log('\n');
+courseManager.listCourses();
+console.log('\n');
 courseManager.removeCourse('JavaScript');
-courseManager.displayCourses();
+console.log('\n');
+courseManager.listCourses();

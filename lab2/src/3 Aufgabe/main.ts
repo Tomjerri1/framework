@@ -1,80 +1,21 @@
-abstract class Car {
-    protected brand: string;
-    protected model: string;
-    protected year: number;
-    private vin: string;
-    constructor(brand: string, model: string, year: number, vin: string) {
-        this.brand = brand;
-        this.model = model;
-        this.year = year;
-        this.vin = vin;
-    }
-    abstract display(): void;
-    public getVin(): string {
-        return this.vin;
-    }
-}
+import { Ford } from './Ford';
+import { McLaren } from './McLaren';
+import { Lamborghini } from './Lamborghini';
 
-class Toyota extends Car {
-    protected color: string;
-    constructor(model: string, year: number, vin: string, color: string) {
-        super("Toyota", model, year, vin);
-        this.color = color;
-    }
-    display(): void {
-        console.table({
-            brand: this.brand,
-            model: this.model,
-            year: this.year,
-            vin: this.getVin(),
-            color: this.color});
-    }
-}
+const fordTransit = new Ford("Transit", 2020, "VAN");
+const fordTransitTurboDiesel = new Ford("Transit Turbo Diesel", 2022, "VAN");
 
-class BMW extends Car {
-    protected isMbrand: boolean;
-    constructor(model: string, year: number, vin: string, isMbrand: boolean) {
-        super("BMW", model, year, vin);
-        this.isMbrand = isMbrand;
-    }
-    display(): void {
-        console.table({
-            brand: this.brand,
-            model: this.model,
-            year: this.year,
-            vin: this.getVin(),
-            isMbrand: this.isMbrand});
-    }
-}
+const mclarenF1 = new McLaren("F1", 1995, "V12");
+const mercedesSLR = new McLaren("Mercedes-Benz SLR", 2005, "V8");
 
-class Mercedes extends Car {
-    protected fuelType: string;
-    constructor(model: string, year: number, vin: string, fuelType: string) {
-        super("Mercedes", model, year, vin);
-        this.fuelType = fuelType;
-    }
-    display(): void {
-        console.table({
-            brand: this.brand,
-            model: this.model,
-            year: this.year,
-            vin: this.getVin(),
-            fuelType: this.fuelType});
-    }
-}
+const lamborghiniCountach = new Lamborghini("Countach", 1985, 300);
+const lamborghiniDiablo = new Lamborghini("Diablo", 1999, 320);
 
-const toyotaCorolla = new Toyota('Corolla', 2020, '123456789', 'blue');
-const toyotaCamry = new Toyota('Camry', 2021, '987654321', 'red');
+fordTransit.displayInfo();
+fordTransitTurboDiesel.displayInfo();
 
-const bmwX5 = new BMW('X5', 2022, '111111111', true);
-const bmw3brand = new BMW('3 brand', 2023, '222222222', false);
+mclarenF1.displayInfo();
+mercedesSLR.displayInfo();
 
-const mercedesEClass = new Mercedes('E-Class', 2024, '333333333', 'diesel');
-const mercedesCClass = new Mercedes('C-Class', 2025, '444444444', 'gasoline');
-
-toyotaCorolla.display();
-toyotaCamry.display();
-bmwX5.display();
-bmw3brand.display();
-mercedesEClass.display();
-mercedesCClass.display();
+lamborghiniCountach.displayInfo();
+lamborghiniDiablo.displayInfo();

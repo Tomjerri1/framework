@@ -7,15 +7,24 @@ class Library {
     }
     addItem(item) {
         this.items.push(item);
-        console.log(`Item ${item.title} added successfully`);
+        console.log(`Додано: ${item.title} автор: ${item.author}`);
     }
-    findItemByTitle(title) {
-        return this.items.find(item => item.title === title);
+    findItemByName(name) {
+        return this.items.find(item => item.title === name);
     }
-    displayAvailableItems() {
-        console.log(`Available items:`);
-        var items = this.items.filter(item => !item.isBorrowed);
-        console.table(items);
+    listAvailableItems() {
+        const availableItems = this.items.filter(item => !item.isBorrowed);
+        console.log("Доступні елементи:");
+        availableItems.forEach(item => {
+            console.log(`- ${item.title} автор: ${item.author}`);
+        });
+    }
+    listAllItems() {
+        console.log("Усі елементи бібліотеки:");
+        this.items.forEach(item => {
+            const status = item.isBorrowed ? "позичено" : "доступно";
+            console.log(`- ${item.title} автор: ${item.author} (${status})`);
+        });
     }
 }
 exports.Library = Library;

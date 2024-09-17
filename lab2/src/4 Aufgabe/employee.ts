@@ -22,7 +22,7 @@ export class Manager extends Employee implements Payable {
     }
 
     pay(): void {
-        console.log(`Manager ${this.name} is paid ${this.salary}`);
+        console.log(`Менеджер ${this.name} оплачується ${this.salary}\n`);
     }
 }
 
@@ -34,6 +34,6 @@ export class Developer extends Employee implements Payable {
         return this.salary * 0.2;
     }
     pay(): void {
-        console.log(`Developer ${this.name} is paid ${this.salary}`);
+        console.log(`Програміст ${this.name} оплачується ${this.salary}\n`);
     }
 }

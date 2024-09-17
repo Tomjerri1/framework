@@ -17,7 +17,7 @@ class Manager extends Employee {
         return this.salary * 0.1;
     }
     pay() {
-        console.log(`Manager ${this.name} is paid ${this.salary}`);
+        console.log(`Менеджер ${this.name} оплачується ${this.salary}\n`);
     }
 }
 exports.Manager = Manager;
@@ -29,7 +29,7 @@ class Developer extends Employee {
         return this.salary * 0.2;
     }
     pay() {
-        console.log(`Developer ${this.name} is paid ${this.salary}`);
+        console.log(`Програміст ${this.name} оплачується ${this.salary}\n`);
     }
 }
 exports.Developer = Developer;

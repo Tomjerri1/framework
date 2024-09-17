@@ -7,23 +7,25 @@ class CourseManager {
     }
     addCourse(course) {
         this.courses.push(course);
-        console.log(`Course ${course.name} added successfully`);
+        console.log(`Курс "${course.courseName}" додано.`);
     }
     removeCourse(courseName) {
-        const index = this.courses.findIndex(course => course.name === courseName);
+        const index = this.courses.findIndex(course => course.courseName === courseName);
         if (index !== -1) {
             this.courses.splice(index, 1);
-            console.log(`Course ${courseName} removed successfully`);
+            console.log(`Курс "${courseName}" видалено.`);
         }
         else {
-            console.log(`Course ${courseName} not found`);
+            console.log(`Курс "${courseName}" не знайдено.`);
         }
     }
     findCourse(courseName) {
-        return this.courses.find(course => course.name === courseName);
+        return this.courses.find(course => course.courseName === courseName);
     }
-    displayCourses() {
-        console.table(this.courses);
+    listCourses() {
+        this.courses.forEach(course => {
+            console.log(`Курс: ${course.courseName}, Тривалість: ${course.duration} годин, Студенти: ${course.students.join(', ') || 'Немає студентів'}`);
+        });
     }
 }
 exports.CourseManager = CourseManager;

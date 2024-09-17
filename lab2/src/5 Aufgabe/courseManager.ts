@@ -1,26 +1,30 @@
-import { Course } from "./course";
+import { Course } from './course';
 
 export class CourseManager {
     private courses: Course[] = [];
 
     addCourse(course: Course): void {
         this.courses.push(course);
-        console.log(`Course ${course.name} added successfully`);
+        console.log(`Курс "${course.courseName}" додано.`);
     }
 
     removeCourse(courseName: string): void {
-        const index = this.courses.findIndex(course => course.name === courseName);
+        const index = this.courses.findIndex(course => course.courseName === courseName);
         if (index !== -1) {
             this.courses.splice(index, 1);
-            console.log(`Course ${courseName} removed successfully`);
+            console.log(`Курс "${courseName}" видалено.`);
         } else {
-            console.log(`Course ${courseName} not found`);
+            console.log(`Курс "${courseName}" не знайдено.`);
         }
     }
+
     findCourse(courseName: string): Course | undefined {
-        return this.courses.find(course => course.name === courseName);
+        return this.courses.find(course => course.courseName === courseName);
     }
-    displayCourses(): void {
-        console.table(this.courses);
+
+    listCourses(): void {
+        this.courses.forEach(course => {
+            console.log(`Курс: ${course.courseName}, Тривалість: ${course.duration} годин, Студенти: ${course.students.join(', ') || 'Немає студентів'}`);
+        });
     }
 }

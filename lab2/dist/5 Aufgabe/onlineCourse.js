@@ -2,17 +2,18 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.OnlineCourse = void 0;
 class OnlineCourse {
-    constructor(name, duration) {
+    constructor(courseName, duration) {
         this.students = [];
-        this.name = name;
+        this.courseName = courseName;
         this.duration = duration;
     }
     registerStudent(student) {
         if (!this.isStudentRegistered(student)) {
             this.students.push(student);
+            console.log(`${student} успішно зареєстрований на курс "${this.courseName}".`);
         }
         else {
-            console.log(`Student ${student} is already registered`);
+            console.log(`${student} вже зареєстрований на курс "${this.courseName}".`);
         }
     }
     isStudentRegistered(student) {

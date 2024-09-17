@@ -1,17 +1,30 @@
-import { LibraryItem } from "./libraryItem";
+import { LibraryItem } from './LibraryItem';
 
 export class Library {
     private items: LibraryItem[] = [];
+
     addItem(item: LibraryItem): void {
         this.items.push(item);
-        console.log(`Item ${item.title} added successfully`);
+        console.log(`Додано: ${item.title} автор: ${item.author}`);
     }
-    findItemByTitle(title: string): LibraryItem | undefined {
-        return this.items.find(item => item.title === title);
+
+    findItemByName(name: string): LibraryItem | undefined {
+        return this.items.find(item => item.title === name);
     }
-    displayAvailableItems(): void {
-        console.log(`Available items:`);
-        var items = this.items.filter(item => !item.isBorrowed);
-        console.table(items);
+
+    listAvailableItems(): void {
+        const availableItems = this.items.filter(item => !item.isBorrowed);
+        console.log("Доступні елементи:");
+        availableItems.forEach(item => {
+            console.log(`- ${item.title} автор: ${item.author}`);
+        });
+    }
+
+    listAllItems(): void {
+        console.log("Усі елементи бібліотеки:");
+        this.items.forEach(item => {
+            const status = item.isBorrowed ? "позичено" : "доступно";
+            console.log(`- ${item.title} автор: ${item.author} (${status})`);
+        });
     }
 }

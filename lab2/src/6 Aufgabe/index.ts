@@ -1,21 +1,23 @@
-import { Book, DVD, Magazine } from "./items";
-import { Library } from './library';
+import { Library } from './Library';
+import { Book } from './Book';
+import { Magazine } from './Magazine';
+import { DVD } from './DVD';
 
-const book = new Book('War and Peace', 'Leo Tolstoy', 1225);
-const magazine = new Magazine('New York Times', 'John Doe', 10);
-const dvd = new DVD('Star Wars', 'George Lucas', 120);
 const library = new Library();
+
+const book = new Book("Великий Гетсбі", "Френсіс Скотт Фіцджеральд", 180);
+const magazine = new Magazine("National Geographic", "Різні автори", 202);
+const dvd = new DVD("Початок", "Крістофер Нолан", 148);
 
 library.addItem(book);
 library.addItem(magazine);
 library.addItem(dvd);
+library.listAllItems();
 
-const foundItem = library.findItemByTitle('War and Peace');
+const foundItem = library.findItemByName("Початок");
 if (foundItem) {
-    console.log(`Found item: ${foundItem.title}`);
-} else {
-    console.log('Item not found');
+    console.log(`Знайдено: ${foundItem.title}, автор: ${foundItem.author}`);
+    foundItem.borrow();
 }
-book.borrow();
-book.borrow();
-library.displayAvailableItems();
+
+library.listAvailableItems();

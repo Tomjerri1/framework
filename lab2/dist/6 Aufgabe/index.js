@@ -1,21 +1,20 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const items_1 = require("./items");
-const library_1 = require("./library");
-const book = new items_1.Book('War and Peace', 'Leo Tolstoy', 1225);
-const magazine = new items_1.Magazine('New York Times', 'John Doe', 10);
-const dvd = new items_1.DVD('Star Wars', 'George Lucas', 120);
-const library = new library_1.Library();
+const Library_1 = require("./Library");
+const Book_1 = require("./Book");
+const Magazine_1 = require("./Magazine");
+const DVD_1 = require("./DVD");
+const library = new Library_1.Library();
+const book = new Book_1.Book("Великий Гетсбі", "Френсіс Скотт Фіцджеральд", 180);
+const magazine = new Magazine_1.Magazine("National Geographic", "Різні автори", 202);
+const dvd = new DVD_1.DVD("Початок", "Крістофер Нолан", 148);
 library.addItem(book);
 library.addItem(magazine);
 library.addItem(dvd);
-const foundItem = library.findItemByTitle('War and Peace');
+library.listAllItems();
+const foundItem = library.findItemByName("Початок");
 if (foundItem) {
-    console.log(`Found item: ${foundItem.title}`);
+    console.log(`Знайдено: ${foundItem.title}, автор: ${foundItem.author}`);
+    foundItem.borrow();
 }
-else {
-    console.log('Item not found');
-}
-book.borrow();
-book.borrow();
-library.displayAvailableItems();
+library.listAvailableItems();
